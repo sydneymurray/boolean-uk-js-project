@@ -280,6 +280,9 @@ footer {
   .signature {
     padding-left: 0px;
   }
+  .crimes-list {
+    width: 200px;
+  }
   footer {
     grid-template-columns: repeat(1, auto);
     justify-items: center;

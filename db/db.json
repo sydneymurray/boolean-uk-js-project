@@ -299,7 +299,7 @@
       "nickName": "Big Teeth Jimmy",
       "crimeDetails": "He terrorized people in public chat",
       "picture": "assets/prisoner-img/prisoner-13.jpeg",
-      "blockCell": "236"
+      "blockCell": "23"
     },
     {
       "id": 15,
@@ -347,7 +347,7 @@
       "goodBehaviour": false,
       "parole": false,
       "gangMember": true,
-      "nickName": "Finisher",
+      "nickName": "Little Finisher",
       "crimeDetails": "Murdered people for fun",
       "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxqTK2BsTD5K8uBAqT-QCf0CBFBwNLNHM-yg&usqp=CAU",
       "blockCell": "198",

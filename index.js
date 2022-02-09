@@ -1,3 +1,8 @@
+//let baseURL = "http://localhost:3000/"
+let baseURL= "https://freedom-prison.herokuapp.com/"
+let prisonersURL = baseURL + "prisoners/"
+let blockURL = baseURL + "block/"
+
 let state = [];
 state.crimeType = null;
 state.gangMember = null;
@@ -345,7 +350,7 @@ function editPrisonerForm(prisoner) {
     state.prisoners[prisonerToUpdate].picture = pictureInput.value;
     state.prisoners[prisonerToUpdate].blockCell = blockcellInput.value;
 
-    fetch(`http://localhost:3000/prisoners/${prisoner.id}`, {
+    fetch(prisonersURL+prisoner.id, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -367,7 +372,7 @@ function editPrisonerForm(prisoner) {
         return response.json();
       })
       .then(function (data) {
-        fetch(`http://localhost:3000/block/${prisoner.id}`, {
+        fetch(blockURL+prisoner.id, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -400,7 +405,7 @@ function editPrisonerForm(prisoner) {
       return inmate.id !== prisoner.id;
     });
 
-    fetch(`http://localhost:3000/prisoners/${prisoner.id}`, {
+    fetch(prisonersURL+prisoner.id, {
       method: "DELETE",
     });
   });
@@ -625,7 +630,7 @@ function renderAdmissionForm() {
     event.preventDefault();
     displayContent.innerHTML = "";
 
-    fetch(`http://localhost:3000/prisoners`, {
+    fetch(prisonersURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -649,7 +654,7 @@ function renderAdmissionForm() {
       .then(function (data) {
         state.prisoners.push(data);
 
-        fetch("http://localhost:3000/block", {
+        fetch(blockURL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -708,21 +713,23 @@ function renderGoodBehaviourList() {
 
 // RETREIVE DATA FROM LOCAL JSON SERVER
 function retrieveData() {
-  fetch("http://localhost:3000/prisoners")
+  fetch(prisonersURL)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       state.prisoners = data;
+      console.log(data)
       return data;
     });
 
-  fetch("http://localhost:3000/block")
+  fetch(blockURL)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       state.block = data;
+      console.log(data)
       return data;
     });
 }
