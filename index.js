@@ -1,4 +1,4 @@
-//let baseURL = "http://localhost:3000/"
+// let baseURL = "http://localhost:3000/"
 let baseURL= "https://freedom-prison.herokuapp.com/"
 let prisonersURL = baseURL + "prisoners/"
 let blockURL = baseURL + "block/"
@@ -9,7 +9,7 @@ state.gangMember = null;
 state.parole = null;
 state.goodBehaviour = null;
 
-function displayPrisoner() {}
+// function displayPrisoner() {}
 
 function renderPrisoners() {
   const prisonerLi = document.querySelector(".prisoners-li");
@@ -19,8 +19,16 @@ function renderPrisoners() {
   });
 }
 
+function removeHeroImage(){
+  const mainH2 = document.querySelector(".main-h2");
+  mainH2.setAttribute("class", "main-h2 no-display");
+  const heroImage = document.querySelector(".hero-img");
+  heroImage.setAttribute("class", "hero-img no-display");
+}
+
 // RENDER PRISONER LIST
 function renderPrisonerList() {
+  removeHeroImage()
   const displayContent = document.querySelector(".display-content");
   displayContent.setAttribute("class", "display-content");
 
@@ -421,6 +429,7 @@ function renderAdmission() {
 }
 
 function renderAdmissionForm() {
+  removeHeroImage()
   const displayContent = document.querySelector(".display-content");
   displayContent.setAttribute(
     "class",

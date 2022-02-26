@@ -265,6 +265,10 @@ footer {
   align-content: center;
 }
 
+.no-display{
+  display: none;
+}
+
 @media screen and (max-width: 780px) {
   .hero-img {
     width: 400px;
