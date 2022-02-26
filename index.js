@@ -397,6 +397,7 @@ function editPrisonerForm(prisoner) {
             });
             state.block.splice(indexOfblock, 1);
             state.block.push(data);
+            renderPrisonerList();
           });
       });
   }
@@ -676,8 +677,8 @@ function renderAdmissionForm() {
             return response.json();
           })
           .then(function (data) {
-            console.log(data);
             state.block.push(data);
+            renderPrisonerList();
           });
       });
   });
