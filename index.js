@@ -416,6 +416,8 @@ function editPrisonerForm(prisoner) {
     fetch(prisonersURL+prisoner.id, {
       method: "DELETE",
     });
+    alert(`Prisoner #${prisoner.id}: ${prisoner.firstName} ${prisoner.lastName} has been deleted`)
+    renderPrisonerList()
   });
 }
 
