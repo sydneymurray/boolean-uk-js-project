@@ -9,7 +9,6 @@ state.gangMember = null;
 state.parole = null;
 state.goodBehaviour = null;
 
-// function displayPrisoner() {}
 
 function renderPrisoners() {
   const prisonerLi = document.querySelector(".prisoners-li");
@@ -728,7 +727,6 @@ function retrieveData() {
     })
     .then(function (data) {
       state.prisoners = data;
-      console.log(data)
       return data;
     });
 
@@ -738,7 +736,6 @@ function retrieveData() {
     })
     .then(function (data) {
       state.block = data;
-      console.log(data)
       return data;
     });
 }
