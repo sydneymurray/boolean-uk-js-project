@@ -186,7 +186,7 @@ function editPrisonerForm(prisoner) {
   
     const blockCellLabel = document.createElement("label");
     blockCellLabel.setAttribute("for", "block-cell-label");
-    blockCellLabel.innerText = "Block Cell:";
+    blockCellLabel.innerText = "Cell:";
     blockCellDiv.append(blockCellLabel);
   
     const blockcellInput = document.createElement("input");
