@@ -224,33 +224,18 @@ function renderAdmissionForm() {
           nickName: nickNameInput.value,
           crimeDetails: crimeDetailsInput.value,
           picture: pictureInput.value,
-          blockCell: blockcellInput.value,
+          block: blockInput.value,
+          cell: blockcellInput.value,
         }),
       })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          state.prisoners.push(data);
-  
-          fetch(blockURL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              blockId: blockInput.value,
-              prisonerId: data.id,
-            }),
-          })
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (data) {
-              state.block.push(data);
-              renderPrisonerList();
-            });
-        });
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (prisoner) {
+        state.prisoners.push(prisoner);
+        alert(`Prisoner #${prisoner.id}: ${prisoner.firstName} ${prisoner.lastName} has been Admitted`)    
+        renderPrisonerList();
+      });
     });
   }
   

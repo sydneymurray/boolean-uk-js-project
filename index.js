@@ -1,5 +1,5 @@
-// let baseURL = "http://localhost:3000/"
-let baseURL= "https://freedom-prison.herokuapp.com/"
+let baseURL = "http://localhost:3000/"
+//let baseURL= "https://freedom-prison.herokuapp.com/"
 let prisonersURL = baseURL + "prisoners/"
 let blockURL = baseURL + "block/"
 

@@ -176,10 +176,7 @@ function editPrisonerForm(prisoner) {
     blockInput.setAttribute("class", "block-cell-input");
     blockInput.setAttribute("id", "block-cell-input");
     blockInput.setAttribute("type", "text");
-    let blockIndex = state.block.findIndex(function (index) {
-      return prisoner.id === index.prisonerId;
-    });
-    blockInput.setAttribute("value", state.block[blockIndex].blockId);
+    blockInput.setAttribute("value", prisoner.block);
     blockDiv.append(blockInput);
   
     //block Cell input + label inside div
@@ -196,7 +193,7 @@ function editPrisonerForm(prisoner) {
     blockcellInput.setAttribute("class", "block-cell-input");
     blockcellInput.setAttribute("id", "block-cell-input");
     blockcellInput.setAttribute("type", "text");
-    blockcellInput.setAttribute("value", prisoner.blockCell);
+    blockcellInput.setAttribute("value", prisoner.cell);
     blockCellDiv.append(blockcellInput);
   
     // CREATE A DIV TO DISPLAY PICTURE
@@ -243,7 +240,8 @@ function editPrisonerForm(prisoner) {
       state.prisoners[prisonerToUpdate].nickName = nickNameInput.value;
       state.prisoners[prisonerToUpdate].crimeDetails = crimeDetailsInput.value;
       state.prisoners[prisonerToUpdate].picture = pictureInput.value;
-      state.prisoners[prisonerToUpdate].blockCell = blockcellInput.value;
+      state.prisoners[prisonerToUpdate].block = blockInput.value;
+      state.prisoners[prisonerToUpdate].cell = blockcellInput.value;
   
       fetch(prisonersURL+prisoner.id, {
         method: "PATCH",
@@ -260,34 +258,14 @@ function editPrisonerForm(prisoner) {
           nickName: state.prisoners[prisonerToUpdate].nickName,
           crimeDetails: state.prisoners[prisonerToUpdate].crimeDetails,
           picture: state.prisoners[prisonerToUpdate].picture,
-          blockCell: state.prisoners[prisonerToUpdate].blockCell,
+          block: state.prisoners[prisonerToUpdate].block,
+          cell: state.prisoners[prisonerToUpdate].cell,
         }),
       })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          fetch(blockURL+prisoner.id, {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              blockId: blockInput.value,
-            }),
-          })
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (data) {
-              let indexOfblock = state.block.findIndex(function (index) {
-                return prisoner.Id === index.prisonerId;
-              });
-              state.block.splice(indexOfblock, 1);
-              state.block.push(data);
-              renderPrisonerList();
-            });
-        });
+      .then(function () {
+        alert(`Prisoner #${prisoner.id}: ${prisoner.firstName} ${prisoner.lastName} has been updated`)
+        renderPrisonerList();
+      });
     }
   
     //delete button

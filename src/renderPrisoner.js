@@ -45,7 +45,7 @@ function renderPrisoner(prisoner, index) {
     const blockCell = document.createElement("span");
     blockCell.setAttribute("class", "block-sell");
     // if (index === underfined) console.log("index underfined");
-    blockCell.innerText = `Block ${state.block[index].blockId} Cell: ${prisoner.blockCell}`;
+    blockCell.innerText = `Block: ${prisoner.block} Cell: ${prisoner.cell}`;
     prisonerArticle.append(blockCell);
   
     const btnWrapper = document.createElement("div");
