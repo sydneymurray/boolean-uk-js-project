@@ -1,4 +1,4 @@
-// let baseURL = "http://localhost:3000/"
+//let baseURL = "http://localhost:3000/"
 let baseURL = "https://freedom-prison.herokuapp.com/"
 let prisonersURL = baseURL + "prisoners/"
 let blockURL = baseURL + "block/"
@@ -25,23 +25,15 @@ function removeHeroImage(){
   heroImage.setAttribute("class", "hero-img no-display");
 }
 
-
-
 function renderAdmission() {
-  const displayContent = document.querySelector(".display-content");
   const admissionBtn = document.querySelector(".admissions-li");
-
   admissionBtn.addEventListener("click", function () {
     renderAdmissionForm();
   });
 }
 
 function renderGangMembers() {
-  let contentSection = document.querySelector(".display-content");
-  contentSection.innerHTML = "";
-
   const gangMember = document.querySelector(".gang-members-li");
-
   gangMember.addEventListener("click", function () {
     state.gangMember = true;
     renderPrisonerList();
@@ -49,11 +41,7 @@ function renderGangMembers() {
 }
 
 function renderEligibleForParole() {
-  let contentSection = document.querySelector(".display-content");
-  contentSection.innerHTML = "";
-
   const parole = document.querySelector(".paroles-li");
-
   parole.addEventListener("click", function () {
     state.parole = true;
     renderPrisonerList();
@@ -83,6 +71,5 @@ function createEventListeners() {
 
 /////////////////////////////////////////////////////////////////////
 // MAIN PROGRAM STARTS HERE
-
 retrieveData();
 createEventListeners();

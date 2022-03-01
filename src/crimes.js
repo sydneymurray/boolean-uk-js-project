@@ -1,9 +1,3 @@
-// MAIN PROGRAM BEGINS AT index.js
-// THIS PROVIDES FUNCTION FOR THE CRIMES MENU BUTTON
-// Author Sydney
-
-////////////////////////////////////////////////////////////////
-// ALL FUNCTIONS ARE DECLARED HERE
 
 // ADD AN EVENT LISTENER FOR THE CRIMES BUTTON
 function createButtonListener() {
@@ -51,9 +45,5 @@ function renderCrimeButton(crime) {
     renderPrisonerList();
   });
 }
-
-////////////////////////////////////////////////////////////////
-// MAIN PROGRAM STARTS IN index.js
-// CRIME BUTTON FUNCTIONS BEGIN HERE
 
 createButtonListener();

@@ -1,7 +1,6 @@
 // RENDER PRISONER
-function renderPrisoner(prisoner, index) {
-    if (
-      state.crimeType !== null &&
+function renderPrisoner(prisoner) {
+    if (state.crimeType !== null &&
       state.crimeType !== prisoner.crimeType.toUpperCase()
     )
       return;
@@ -44,7 +43,6 @@ function renderPrisoner(prisoner, index) {
   
     const blockCell = document.createElement("span");
     blockCell.setAttribute("class", "block-sell");
-    // if (index === underfined) console.log("index underfined");
     blockCell.innerText = `Block: ${prisoner.block}  -  Cell: ${prisoner.cell}`;
     prisonerArticle.append(blockCell);
   
