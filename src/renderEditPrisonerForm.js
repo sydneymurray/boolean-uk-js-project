@@ -1,5 +1,5 @@
 // RENDER PRISONER EDIT FORM
-function editPrisonerForm(prisoner) {
+function renderEditPrisonerForm(prisoner) {
     const displayContent = document.querySelector(".display-content");
     displayContent.setAttribute(
       "class",
@@ -223,14 +223,38 @@ function editPrisonerForm(prisoner) {
     submitBtn.addEventListener("click", function (event) {
       event.preventDefault();
       updatePrisoner();
-      displayContent.innerHTML = "";
     });
   
     //Update Array and JSON
     function updatePrisoner() {
+
+      // CHECK BLOCK BOUNDARY
+      let block = blockInput.value.toUpperCase()
+      if (block !=="A" && block !=="B" && block !=="C" && block !=="D"){
+        alert(`Prisoner has not been updated!\nBlock: ${block} does not exist.`)
+        return
+      }
+    
+      // CHECK CELL BOUNDARY
+      if (Number(blockcellInput.value) > 40){
+        alert(`Prisoner has not been updated!\nBlocks only have 40 cells, cell number ` +
+          blockcellInput.value +` does not exist`)
+        return
+      }
+
+      // CHECK CELL AVAILABILITY
+      let occupiedByInmate = state.prisoners.find(inmate =>  inmate.id !== prisoner.id && 
+        inmate.block === block && inmate.cell === blockcellInput.value)
+      if (occupiedByInmate){
+        alert(`Block: ${block} - Cell: ${blockcellInput.value} is occupied by prisoner #` +
+          `${occupiedByInmate.id}: ${occupiedByInmate.firstName} ${occupiedByInmate.lastName}`)
+        return
+      }
+
       const prisonerToUpdate = state.prisoners.findIndex(function (inmate) {
         return inmate.id === prisoner.id;
       });
+
       state.prisoners[prisonerToUpdate].firstName = firstNameInputEl.value;
       state.prisoners[prisonerToUpdate].lastName = lastNameInputEl.value;
       state.prisoners[prisonerToUpdate].crimeType = crimeTypeInput.value;
@@ -240,7 +264,7 @@ function editPrisonerForm(prisoner) {
       state.prisoners[prisonerToUpdate].nickName = nickNameInput.value;
       state.prisoners[prisonerToUpdate].crimeDetails = crimeDetailsInput.value;
       state.prisoners[prisonerToUpdate].picture = pictureInput.value;
-      state.prisoners[prisonerToUpdate].block = blockInput.value;
+      state.prisoners[prisonerToUpdate].block = blockInput.value.toUpperCase();
       state.prisoners[prisonerToUpdate].cell = blockcellInput.value;
   
       fetch(prisonersURL+prisoner.id, {
@@ -258,7 +282,7 @@ function editPrisonerForm(prisoner) {
           nickName: state.prisoners[prisonerToUpdate].nickName,
           crimeDetails: state.prisoners[prisonerToUpdate].crimeDetails,
           picture: state.prisoners[prisonerToUpdate].picture,
-          block: state.prisoners[prisonerToUpdate].block,
+          block: state.prisoners[prisonerToUpdate].block.toUpperCase(),
           cell: state.prisoners[prisonerToUpdate].cell,
         }),
       })

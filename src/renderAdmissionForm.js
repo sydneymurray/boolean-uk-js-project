@@ -207,6 +207,16 @@ function renderAdmissionForm() {
   
     admissionBtn.addEventListener("click", function (event) {
       event.preventDefault();
+
+      // CHECK CELL AVAILABILITY
+      let block = blockInput.value.toUpperCase()
+      let occupiedByInmate = state.prisoners.find(inmate => inmate.block === block &&
+         inmate.cell === blockcellInput.value)
+      if (occupiedByInmate){
+        alert(`Block: ${block} - Cell: ${blockcellInput.value} is occupied by prisoner #` +
+          `${occupiedByInmate.id}: ${occupiedByInmate.firstName} ${occupiedByInmate.lastName}`)
+        return
+      }
       displayContent.innerHTML = "";
   
       fetch(prisonersURL, {
@@ -224,7 +234,7 @@ function renderAdmissionForm() {
           nickName: nickNameInput.value,
           crimeDetails: crimeDetailsInput.value,
           picture: pictureInput.value,
-          block: blockInput.value,
+          block: blockInput.value.toUpperCase(),
           cell: blockcellInput.value,
         }),
       })

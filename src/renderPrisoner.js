@@ -59,7 +59,7 @@ function renderPrisoner(prisoner, index) {
   
     editBtn.addEventListener("click", function () {
       state.prisoner = prisoner;
-      editPrisonerForm(prisoner);
+      renderEditPrisonerForm(prisoner);
     });
   }
   
