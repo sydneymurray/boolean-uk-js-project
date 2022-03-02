@@ -60,6 +60,11 @@ function renderGoodBehaviourList() {
   });
 }
 
+function updateSig(){
+  const displayContent = document.querySelector(".sig-time");
+  displayContent.innerHTML = (new Date).toString().slice(15,24);
+}
+
 //CREATE EVENT LISTENERS FOR MAIN MENU BUTTONS
 function createEventListeners() {
   renderPrisoners();
@@ -71,5 +76,6 @@ function createEventListeners() {
 
 /////////////////////////////////////////////////////////////////////
 // MAIN PROGRAM STARTS HERE
+const cancelUpDateSig = setInterval(updateSig, 1000);
 retrieveData();
 createEventListeners();
