@@ -29,12 +29,14 @@ body {
   font-size: 1.4rem;
   background-color: lightgrey;
   padding: 0.5ch;
-  color: black;
   border-radius: 5px;
   border: solid black 3px;
   max-width: 320px;
   margin-right: auto;
   margin-left: auto;
+}
+.h2-left{
+  color: black;
 }
 
 .hero-img {
@@ -267,6 +269,14 @@ footer {
 
 .no-display{
   display: none;
+}
+
+.redex,
+.main-h2{
+  display:inline-block
+}
+.redex{
+  color: red;
 }
 
 @media screen and (max-width: 780px) {

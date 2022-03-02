@@ -213,8 +213,9 @@ function renderAdmissionForm() {
       let occupiedByInmate = state.prisoners.find(inmate => inmate.block === block &&
          inmate.cell === blockcellInput.value)
       if (occupiedByInmate){
-        alert(`Block: ${block} - Cell: ${blockcellInput.value} is occupied by prisoner #` +
-          `${occupiedByInmate.id}: ${occupiedByInmate.firstName} ${occupiedByInmate.lastName}`)
+        alert(`Prisoner has not been updated!\nBlock: ${block} - Cell: ${blockcellInput.value}` + 
+          ` is occupied by prisoner #${occupiedByInmate.id}: ${occupiedByInmate.firstName}` +
+          ` ${occupiedByInmate.lastName}`)
         return
       }
       displayContent.innerHTML = "";
