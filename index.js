@@ -20,7 +20,7 @@ function renderPrisoners() {
 
 function removeHeroImage(){
   const mainH2 = document.querySelector(".main-h2");
-  mainH2.setAttribute("class", "main-h2 no-display");
+  if (mainH2) mainH2.remove()
   const heroImage = document.querySelector(".hero-img");
   heroImage.setAttribute("class", "hero-img no-display");
 }

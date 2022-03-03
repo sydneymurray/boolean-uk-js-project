@@ -9,6 +9,7 @@ function createButtonListener() {
 
 // RENDER BUTTON LIST OF CRIMES
 function renderCrimesButtonList() {
+  removeHeroImage()
   let menuSection = document.querySelector(".display-menu");
   let contentSection = document.querySelector(".display-content");
   contentSection.setAttribute("class","display-content display-content-admin-form");
