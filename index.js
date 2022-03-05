@@ -10,6 +10,20 @@ state.parole = null;
 state.goodBehaviour = null;
 
 
+function mainH1() {
+  const mainH1 = document.querySelector(".main-h1");
+  mainH1.addEventListener("click", function () {
+    displayHeroImg();
+  });  
+}
+
+function displayHeroImg(){
+  const displayContent = document.querySelector(".display-content");
+  displayContent.innerHTML = "";
+  const heroImage = document.querySelector(".hero-img");
+  heroImage.setAttribute("class", "hero-img");
+}
+
 function renderPrisoners() {
   const prisonerLi = document.querySelector(".prisoners-li");
 
@@ -67,6 +81,7 @@ function updateSig(){
 
 //CREATE EVENT LISTENERS FOR MAIN MENU BUTTONS
 function createEventListeners() {
+  mainH1();
   renderPrisoners();
   renderAdmission();
   renderGangMembers();

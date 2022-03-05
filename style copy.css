@@ -31,8 +31,7 @@ body {
   padding: 0.5ch;
   border-radius: 5px;
   border: solid black 3px;
-  padding-left: 2ch;
-  padding-right: 2ch;
+  max-width: 320px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -275,11 +274,10 @@ footer {
 
 .redex,
 .main-h2{
-  display:inline-block;
+  display:inline-block
 }
-.redexs{
+.redex{
   color: red;
-  background-color: red;
 }
 
 @media screen and (max-width: 780px) {
@@ -325,11 +323,6 @@ footer {
     max-width: 300px;
   }
 }
-
-.main-h1:hover {
-  background-color: white
-}
-
 .prisoner-article:hover,
 .admission-btn:hover,
 .edit-btn:hover,
@@ -350,4 +343,8 @@ footer {
   transform: scale(1.2);
 }
 
-
+.main-h2:hover,
+.main-h1:hover {
+  color: darkgreen;
+  border-color: darkgreen;
+}
