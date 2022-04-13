@@ -114,6 +114,7 @@ body {
   text-align: center;
   padding: 3px;
   margin: 3px;
+  height: 4ch;
 }
 
 .prisoner-img {
@@ -316,6 +317,40 @@ footer {
     margin-bottom: 0px;
   }
 }
+
+@media screen and (max-width: 510px) {
+  .prisoner-img {
+    width: 150px;
+  }
+  .prisoner-article {
+    max-width: 180px;
+  }
+}
+
+.main-h1:hover {
+  background-color: white
+}
+
+.prisoner-article:hover,
+.admission-btn:hover,
+.edit-btn:hover,
+.submit-btn:hover,
+.crimes-list-item:hover,
+.option-list-item:hover {
+  background-color: white;
+  transform: scale(1.05);
+}
+.delete-btn:hover {
+  background-color: red;
+}
+.prisoner-article:hover {
+  border-color: aqua;
+  transform: scale(1.02);
+}
+.crimes-list-item:hover {
+  transform: scale(1.2);
+}
+
 
 @media screen and (max-width: 430px) {
   .hero-img {
